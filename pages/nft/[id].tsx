@@ -18,22 +18,21 @@ function NFTDropPage() {
                 <div className="relative group">
                     <div className="absolute -inset-1.5 bg-gradient-to-br from-yellow-500 to-cyan-600 p-2 rounded-xl blur opacity-60 group-hover:opacity-100 group-hover:duration-300 transition duration-1000">
                     </div>
-                    <div className='rounded-xl bg-gradient-to-br from-yellow-400 to-purple-600 p-1'>
-                    <img className=' relative w-44 rounded-xl object-cover lg:h-96 lg:w-72'
-                     src="https://links.papareact.com/8sg" alt="" />
-                     </div>
+                    <div className='rounded-xl bg-gradient-to-br from-yellow-400 to-cyan-600 p-1'>
+                        <img className=' relative w-44 rounded-xl object-cover lg:h-96 lg:w-72'
+                        src="https://links.papareact.com/8sg" alt="" />
+                    </div>
                 </div>
                 
-       
-            </div>
-            <div className='text-center p-5 space-y-2'>
-                <h1 className='text-4xl font-bold text-white'>
-                    PAPAFAM Apes
-                </h1>
-                <h2 className='text-xl text-gray-300'>
-                    A collection of PAPAFAM Apes whi live & breathe React
-                </h2>
-            </div>
+                <div className='text-center p-5 space-y-2'>
+                    <h1 className='text-3xl font-bold text-white'>
+                        PAPAFAM Apes
+                    </h1>
+                    <h2 className='text-xl text-gray-300'>
+                        A collection of PAPAFAM Apes who live & breathe React
+                    </h2>
+                </div>    
+            </div> 
         </div>
 
         {/* Right */}
@@ -66,11 +65,11 @@ function NFTDropPage() {
             <div className='mt-10 flex flex-1 flex-col items-center space-y-6 text-center lg:space-y-0 lg:justify-center'>
                 <img className='w-80 object-cover pb-10 lg:h-40'
                 src="https://links.papareact.com/bdy" alt="" />
-                <h1 className='text-3xl font-bold lg:text-5xl lg:font-extrabold'>The PAPAFAM Ape Coding Club | NFT Drop</h1>
+                <h1 className='text-3xl font-bold lg:text-4xl lg:font-extrabold'>The PAPAFAM Ape Coding Club | NFT Drop</h1>
                 <p className='pt-2 text-xl text-green-500'>13 / 21 NFT's claimed</p>           
             </div>
             {/* Mint Button */}
-            <button className='h-16 w-full bg-red-600 text-white rounded-full mt-10 font-bold'>
+            <button className='h-12 w-full bg-red-600 text-white rounded-full mt-10 font-bold'>
                 Mint NFT (0.01 ETH)
             </button>
         </div>
