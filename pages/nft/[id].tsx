@@ -6,6 +6,8 @@ import { Collection } from '../../typings';
 import Link from 'next/link'
 import { BigNumber } from 'ethers';
 import toast, { Toaster } from 'react-hot-toast'
+import Modal from '../../src/components/Modal/Modal'
+import { NFTMetadata, NFTMetadataOwner } from '@thirdweb-dev/sdk';
 
 interface Props {
     collection: Collection
@@ -17,6 +19,8 @@ function NFTDropPage({ collection }: Props ) {
     const [ totalSupply, setTotalSupply ] = useState<BigNumber>();
     const [ priceInEth, setPriceInEth ] = useState<string>();
     const [ loading, setLoading ] = useState<boolean>(true);
+    const [ mintedNFT, setMintedNFT ] = useState<NFTMetadataOwner>();
+    const [ modalOn, setModalOn ] = useState<boolean>(false);
 
     const nftDrop = useNFTDrop(collection.address)
 
@@ -27,11 +31,8 @@ function NFTDropPage({ collection }: Props ) {
     //----
      
     useEffect(() => {
-        if (!nftDrop) {
-            console.log('La concha de la lora');
-            return
-        }
-
+        if (!nftDrop) return;
+        
         const fetchPrice = async() => {
             const claimedConditions = await nftDrop.claimConditions.getAll();
 
@@ -74,8 +75,9 @@ function NFTDropPage({ collection }: Props ) {
 
         nftDrop.claimTo(address, quantity)
         .then(async tx => {
-           const receipt = tx[0].receipt // the transaction receip
-           const claimedTokenId = tx[0].id // id of the NFT claimed
+        //    const receipt = tx[0].receipt // the transaction receip
+        //    const claimedTokenId = tx[0].id // id of the NFT claimed
+
            const claimedNFT = await tx[0].data() // Get the claimed NFT metadata
 
            toast('HOORAY.. You Succesfully Minted!', {
@@ -89,9 +91,8 @@ function NFTDropPage({ collection }: Props ) {
             }
            })
 
-           console.log(receipt);
-           console.log(claimedTokenId)
-           console.log(claimedNFT)
+           setMintedNFT(claimedNFT)
+           setModalOn(true)
         })
         .catch( err => {
             console.log(err);
@@ -113,21 +114,22 @@ function NFTDropPage({ collection }: Props ) {
 
   return (
     <div className='flex h-screen flex-col lg:grid lg:grid-cols-10'>
+
+        {/* Modal for NFT purchased */}
+
+        { (mintedNFT && modalOn) && <Modal nft={mintedNFT} setModalOn={setModalOn}/> }
+        
         <Toaster position='bottom-center'/>
         
         {/* Left */}
         <div className='lg:col-span-4 bg-gradient-to-br bg-300 from-cyan-500 via-purple-500 to-pink-500 animate-move'>
             <div className='flex flex-col items-center justify-center py-2 lg:min-h-screen'>
-                <div className="relative group">
-                    <div className="absolute -inset-1.5 bg-gradient-to-br from-yellow-500 to-cyan-600 p-2 rounded-xl blur opacity-60 group-hover:opacity-100 group-hover:duration-300 transition duration-1000">
-                    </div>
-                    <div className='rounded-xl bg-gradient-to-br from-yellow-400 to-cyan-600 p-1'>
-                        <img 
-                         className=' relative w-44 rounded-xl object-cover lg:h-96 lg:w-72'
-                         src={urlFor(collection.previewImage).url()} 
-                         alt="" 
-                        />
-                    </div>
+                <div className='rounded-xl bg-gradient-to-br from-yellow-400 to-cyan-600 p-1'>
+                    <img 
+                        className='w-44 rounded-xl object-cover lg:h-96 lg:w-72'
+                        src={urlFor(collection.previewImage).url()} 
+                        alt="" 
+                    />
                 </div>
                 
                 <div className='text-center p-5 space-y-2'>

@@ -1,3 +1,4 @@
+import { BigNumber } from "ethers"
 
 interface Image {
     assets: {
@@ -28,4 +29,13 @@ export interface Collection {
     creator: Creator
     mainImage: Image
     previewImage: Image
+}
+
+export interface NFT {
+    description: string
+    id: BigNumber
+    image: string
+    name: string
+    properties: object
+    uri: string
 }

@@ -34,7 +34,7 @@ const Home = ({ collections }: Props) => {
       <main className='bg-slate-100 p-10 shadow-xl shadow-rose-400/20'>
         <div className='grid space-x-3 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4'>
           { collections.map( collection => (
-            <Link href={`/nft/${collection.slug.current}`}>
+            <Link href={`/nft/${collection.slug.current}`} key={collection._id}>
               <div className='flex flex-col items-center cursor-pointer transition-all duration-200 hover:scale-105'>
                 <img className='h-96 w-60 rounded-2xl object-cover' src={urlFor(collection.mainImage).url()} alt="" />
 
