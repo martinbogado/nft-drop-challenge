@@ -2,6 +2,7 @@ import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import Footer from '../src/components/Footer/Footer'
 
 import { sanityClient, urlFor } from '../sanity'
 import { Collection } from '../typings'
@@ -15,54 +16,63 @@ const Home = ({ collections }: Props) => {
 
 
   return (
-    <div className="max-w-7xl mx-auto flex flex-col min-h-screen py-20 px-10 2xl:px-0">
+    <div className="max-w-7xl mx-auto flex flex-col min-h-screen pt-20 px-10 2xl:px-0 lg:py-0">
       <Head>
         <title>NFT Drop Challenge</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* Header */}
-      <h1 className='mb-10 text-4xl font-extralight'>
+      <h1 className='absolute text-3xl lg:text-4xl lg:top-10 font-extralight text-center'>
         The{' '}
-        <span className='font-extrabold underline decoration-pink-600/50'>
+        <span className='font-extrabold underline decoration-yellow-600/50'>
             PAPAFAM 
         </span>{' '}
         NFT Market Place
       </h1>
 
       {/* Landing */}
-      <div className='flex flex-col justify-between h-screen lg:grid lg:grid-cols-2'>
-        <div>
-          Best Nfts
+      <div className='grid grid-rows-2 justify-between h-screen lg:grid-cols-2 md:grid-cols-2 box-border'>
+        <div className="col-span-2 md:col-span-1 lg:col-span-1 lg:row-span-2 mb-12 mt-16 flex flex-col space-y-6 text-center md:mb-0 md:text-left md:justify-center md:space-y-1 lg:justify-center lg:space-y-2">
+          {/* HERO COPY */}
+          <h1 className=" text-3xl font-extralight dark:text-white  md:max-w-md md:text-6xl lg:font-bold">
+            Discover and collect rare <span className="font-bold text-yellow-600">NFTs</span>
+          </h1>
         </div>
-        <div className='relative block mt-auto'>
-          <div className='absolute bottom-1/4 w-max lg:hover:-translate-y-[220px] transition -translate-y-[180px] translate-x-[220px] lg:-translate-y-[200px] lg:translate-x-[360px]'>
-            <div className=' w-48 card transition rounded-sm lg:w-72'>
-              
-                <img src="/images/punk.png" alt="" />
-              
-            </div> 
+          <div className='md:col-span-1 md:row-span-2 md:relative'>
+            <div className='absolute md:top-1/2 lg:top-1/2 w-max lg:hover:-translate-y-[220px] transition duration-300 -translate-y-[180px] translate-x-[220px] lg:-translate-y-[200px] lg:translate-x-[300px]'>
+              <div className=' w-48 card transition rounded-sm lg:w-72'>
+                
+                  <img src="/images/punk.png" alt="punk" />
+                
+              </div> 
+            </div>
+            <div className='absolute md:top-1/2 lg:top-1/2 w-max lg:hover:-translate-y-[120px] transition duration-300 -translate-y-[80px] translate-x-[120px] lg:-translate-y-[100px] lg:translate-x-[160px]'>
+              <div className=' w-48 card transition rounded-sm lg:w-72'>
+                
+                  <img src="/images/something.png" alt="something" />
+                
+              </div> 
+            </div>
+            <div className='absolute md:top-1/2 lg:top-1/2 w-max lg:hover:-translate-y-3 transition duration-300'>
+              <div className=' w-48 card transition rounded-sm lg:w-72'>
+                
+                  <img src="/images/azuki.png" alt="azuki" />
+                
+              </div> 
+            </div>
           </div>
-          <div className='absolute bottom-1/4 w-max lg:hover:-translate-y-[120px] transition -translate-y-[80px] translate-x-[120px] lg:-translate-y-[100px] lg:translate-x-[160px]'>
-            <div className=' w-48 card transition rounded-sm lg:w-72'>
-              
-                <img src="/images/something.png" alt="" />
-              
-            </div> 
-          </div>
-          <div className='absolute bottom-1/4 w-max lg:hover:-translate-y-3 transition'>
-            <div className=' w-48 card transition rounded-sm lg:w-72'>
-              
-                <img src="/images/azuki.png" alt="" />
-              
-            </div> 
-          </div>
-        </div>
+
       </div>
       
       
       {/* Main content */}
-      <main className='bg-slate-100 p-10 shadow-xl shadow-rose-400/20'>
+      <main className='bg-slate-100 p-10 shadow-xl shadow-yellow-400/20 mb-10'>
+        <section className="pb-12 lg:pb-16">
+          <h1 className="text-center text-3xl font-extralight md:text-left  md:text-4xl">
+            Explore the <span className="font-bold text-yellow-500">collections</span>
+          </h1>
+        </section>
         <div className='grid space-x-3 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4'>
           { collections.map( collection => (
             <Link href={`/nft/${collection.slug.current}`} key={collection._id}>

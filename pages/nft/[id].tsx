@@ -8,6 +8,7 @@ import { BigNumber } from 'ethers';
 import toast, { Toaster } from 'react-hot-toast'
 import Modal from '../../src/components/Modal/Modal'
 import { NFTMetadata, NFTMetadataOwner } from '@thirdweb-dev/sdk';
+import Footer from '../../src/components/Footer/Footer'
 
 interface Props {
     collection: Collection
@@ -170,6 +171,12 @@ function NFTDropPage({ collection }: Props ) {
                     <p className='text-center text-sm text-rose-400'>
                         You're logged in with wallet {address.substring(0,5)}...{address.substring(address.length - 5)}</p>
                 )
+            }
+            {
+             (!address && !loading) && (
+                <p className='text-center text-xl text-rose-600 animate-pulse'>
+                    First, connect your wallet to get started.. </p>
+             )   
             }
 
             {/* Content */}
