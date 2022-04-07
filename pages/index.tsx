@@ -30,6 +30,37 @@ const Home = ({ collections }: Props) => {
         NFT Market Place
       </h1>
 
+      {/* Landing */}
+      <div className='flex flex-col justify-between h-screen lg:grid lg:grid-cols-2'>
+        <div>
+          Best Nfts
+        </div>
+        <div className='relative block mt-auto'>
+          <div className='absolute bottom-1/4 w-max lg:hover:-translate-y-[220px] transition -translate-y-[180px] translate-x-[220px] lg:-translate-y-[200px] lg:translate-x-[360px]'>
+            <div className=' w-48 card transition rounded-sm lg:w-72'>
+              
+                <img src="/images/punk.png" alt="" />
+              
+            </div> 
+          </div>
+          <div className='absolute bottom-1/4 w-max lg:hover:-translate-y-[120px] transition -translate-y-[80px] translate-x-[120px] lg:-translate-y-[100px] lg:translate-x-[160px]'>
+            <div className=' w-48 card transition rounded-sm lg:w-72'>
+              
+                <img src="/images/something.png" alt="" />
+              
+            </div> 
+          </div>
+          <div className='absolute bottom-1/4 w-max lg:hover:-translate-y-3 transition'>
+            <div className=' w-48 card transition rounded-sm lg:w-72'>
+              
+                <img src="/images/azuki.png" alt="" />
+              
+            </div> 
+          </div>
+        </div>
+      </div>
+      
+      
       {/* Main content */}
       <main className='bg-slate-100 p-10 shadow-xl shadow-rose-400/20'>
         <div className='grid space-x-3 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4'>

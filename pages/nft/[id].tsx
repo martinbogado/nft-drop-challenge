@@ -44,7 +44,7 @@ function NFTDropPage({ collection }: Props ) {
 
             const claimed = await nftDrop.getAllClaimed();
             const total = await nftDrop.totalSupply();
-            const unclaimed = await nftDrop.getAllUnclaimed();
+            // const unclaimed = await nftDrop.getAllUnclaimed();
 
             setClaimedSupply(claimed.length);
             setTotalSupply(total);
@@ -52,9 +52,9 @@ function NFTDropPage({ collection }: Props ) {
             setLoading(false);
         }
 
-        fetchPrice();
+        !priceInEth && fetchPrice();
         fetchNFTDropData();
-    },[nftDrop])
+    },[nftDrop, mintedNFT])
 
     const mintNft = () => {
         if(!nftDrop || !address) return;
@@ -190,7 +190,7 @@ function NFTDropPage({ collection }: Props ) {
 
                 {
                     loading && (
-                        <img className='h-16 w-80 object-cover' src="https://hackernoon.com/images/0*4Gzjgh9Y7Gu8KEtZ.gif" alt="gato" />
+                        <img className='h-16 w-72 object-cover' src="https://hackernoon.com/images/0*4Gzjgh9Y7Gu8KEtZ.gif" alt="gato" />
                     )
                 }
                            
