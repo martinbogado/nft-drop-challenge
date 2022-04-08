@@ -13,7 +13,8 @@ module.exports = {
     },
     extend: {
       animation: {
-        move: 'move 5s alternate infinite'
+        move: 'move 5s alternate infinite',
+        slideDown: 'slideDown 3s alternate'
       },
       keyframes: {
         move: {
@@ -22,6 +23,16 @@ module.exports = {
           },
           'to': {
             backgroundPosition: '100% 100%'
+          }
+        },
+        slideDown: {
+          'from': {
+            opacity: '0',
+            transform: 'translateY(-2rem)'
+          },
+          'to': {
+            opacity: '1',
+            transform: 'translateY(0)'
           }
         },
       },

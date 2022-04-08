@@ -1,8 +1,7 @@
 import type { GetServerSideProps, NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
-import Footer from '../src/components/Footer/Footer'
+import Head from 'next/head';
+import Link from 'next/link';
+import ChangeTheme from '../src/components/ChangeTheme/ChangeTheme';
 
 import { sanityClient, urlFor } from '../sanity'
 import { Collection } from '../typings'
@@ -21,6 +20,9 @@ const Home = ({ collections }: Props) => {
         <title>NFT Drop Challenge</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      {/* Light or Dark mode buttton */}
+      <ChangeTheme />
 
       {/* Header */}
       <h1 className='absolute text-3xl lg:text-4xl lg:top-10 font-extralight text-center'>
@@ -67,7 +69,7 @@ const Home = ({ collections }: Props) => {
       
       
       {/* Main content */}
-      <main className='bg-slate-100 p-10 shadow-xl shadow-yellow-400/20 mb-10'>
+      <main className=' p-10 shadow-xl shadow-yellow-400/20 mb-10 to-blue-400[0.35] dark:to-blue-400[0.25] bg-gradient-to-tr from-purple-300/[0.75] dark:from-purple-500/[0.10]'>
         <section className="pb-12 lg:pb-16">
           <h1 className="text-center text-3xl font-extralight md:text-left  md:text-4xl">
             Explore the <span className="font-bold text-yellow-500">collections</span>
@@ -81,7 +83,7 @@ const Home = ({ collections }: Props) => {
 
                 <div className='p-5'>
                   <h2 className='text-3xl'>{collection.title}</h2>
-                  <p className='mt-2 text-sm text-gray-400'>{collection.description}</p>
+                  <p className='mt-2 text-sm text-gray-600 dark:text-gray-400'>{collection.description}</p>
                 </div>
               </div>
             </Link>   

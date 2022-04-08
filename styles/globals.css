@@ -6,6 +6,7 @@
     .card {
         transform: rotateX(25deg) rotateY(-17deg) rotateZ(9deg);
 	    transform-origin: 50% 50% 0px;
+        border: 1px solid #866b09;
     }
 
     .card::before {
@@ -18,6 +19,7 @@
         background-color: #36352F;
         transform-origin: bottom;
         transform: skew(-45deg);
+        border: 0.5px solid #866b09;
     }
 
     .card::after {
@@ -30,5 +32,6 @@
         background-color: #36352F;
         transform-origin: right;
         transform: skewY(-45deg);
+        border: 0.5px solid #866b09;
     }
   }

@@ -8,7 +8,7 @@ import { BigNumber } from 'ethers';
 import toast, { Toaster } from 'react-hot-toast'
 import Modal from '../../src/components/Modal/Modal'
 import { NFTMetadata, NFTMetadataOwner } from '@thirdweb-dev/sdk';
-import Footer from '../../src/components/Footer/Footer'
+import ChangeTheme from '../../src/components/ChangeTheme/ChangeTheme'
 
 interface Props {
     collection: Collection
@@ -81,8 +81,9 @@ function NFTDropPage({ collection }: Props ) {
 
            const claimedNFT = await tx[0].data() // Get the claimed NFT metadata
 
-           toast('HOORAY.. You Succesfully Minted!', {
-               duration: 5000,
+           toast('Succesfully Minted! Congratulations on your new NFT', {
+               icon:  '🏆',
+               duration: 6000,
                style: {
                 background: 'green',
                 color: 'white',
@@ -114,8 +115,9 @@ function NFTDropPage({ collection }: Props ) {
     }
 
   return (
-    <div className='flex h-screen flex-col lg:grid lg:grid-cols-10'>
+    <div className='flex lg:h-screen flex-col lg:grid lg:grid-cols-10'>
 
+        { !modalOn && <ChangeTheme />}
         {/* Modal for NFT purchased */}
 
         { (mintedNFT && modalOn) && <Modal nft={mintedNFT} setModalOn={setModalOn}/> }
@@ -145,9 +147,10 @@ function NFTDropPage({ collection }: Props ) {
         </div>
 
         {/* Right */}
-        <div className='flex flex-1 flex-col p-12 lg:col-span-6'>
+        <div className='flex flex-1 flex-col p-12 lg:col-span-6 to-blue-400[0.35] dark:to-blue-400[0.25] bg-gradient-to-tr from-purple-200/[0.95] dark:from-purple-500/[0.10]'>
+
             {/* Header */}
-            <header className='flex items-center justify-between'>
+            <header className='flex items-center justify-between lg:mr-16'>
                 <Link href={'/'}>
                     <h1 className='w-52 cursor-pointer text-xl font-extralight sm:w-80'>
                         The{' '}
@@ -159,7 +162,7 @@ function NFTDropPage({ collection }: Props ) {
                 </Link>
                 
                 <button onClick={() => address ? disconnect() : connectWithMetamask()}
-                 className='rounded-full bg-rose-400 text-white px-4 py-2 text-xs font-bold lg:px-5 lg:py-3 lg:text-base'>
+                 className='rounded-full bg-rose-400 dark:bg-purple-700 text-white px-4 py-2 text-xs font-bold lg:px-5 lg:py-3 lg:text-base'>
                    { address ? 'Sign Out' : 'Sign In'}
                 </button>
             </header>
@@ -197,29 +200,42 @@ function NFTDropPage({ collection }: Props ) {
 
                 {
                     loading && (
-                        <img className='h-16 w-72 object-cover' src="https://hackernoon.com/images/0*4Gzjgh9Y7Gu8KEtZ.gif" alt="gato" />
+                        <>
+                            <img className='h-16 w-72 object-cover dark:hidden' src="https://static.wixstatic.com/media/06cc57_1e3989db030d456190c9042a479a9fd6~mv2.gif" alt="loading" />
+                            <img className='h-16 w-20 object-cover hidden dark:block' src="https://i.pinimg.com/originals/58/4b/60/584b607f5c2ff075429dc0e7b8d142ef.gif" alt="loading" />
+                        </>
+                        
                     )
                 }
                            
             </div>
             {/* Mint Button */}
+            
             <button
              onClick={() => mintNft()}
              disabled={ loading || claimedSupply === totalSupply?.toNumber() || !address } 
-             className='h-12 w-full bg-red-600 text-white rounded-full mt-10 font-bold disabled:bg-gray-400'
+             className='h-12 w-full rounded-full mt-10 font-bold disabled:cursor-not-allowed dark:bg-black bg-white'
             >
-             {
-               loading ? (
-                   <>Loading</>
-               ) : claimedSupply === totalSupply?.toNumber() ? (
-                   <>SOLD OUT</>
-               ) : !address ? (
-                    <>Sign in to Mint</>
-               ) : (
-                   <span className='font-bold'>Mint NFT ({priceInEth} ETH)</span>
-               ) 
-             }        
+              { !modalOn &&
+              <div className="group relative">
+                <div className="group-hover:duration-600 absolute -inset-0.5 rounded-full bg-gradient-to-r from-purple-600 to-blue-500 opacity-30 blur transition duration-1000 group-hover:opacity-100"></div>
+                <div className="relative space-x-4 divide-gray-600 rounded-full  bg-white p-4 leading-none text-blue-500 transition duration-200 hover:text-purple-500 dark:bg-black dark:text-blue-200 dark:hover:text-purple-300">                     
+                {
+                    loading ? (
+                        <>Loading</>
+                    ) : claimedSupply === totalSupply?.toNumber() ? (
+                        <>SOLD OUT</>
+                    ) : !address ? (
+                        <span className='text-pink-600 dark:text-purple-800'>Sign in to Mint</span>
+                    ) : (
+                        <span className='font-bold'>Mint NFT ({priceInEth} ETH)</span>
+                    ) 
+                }      
+                </div>
+              </div> 
+              } 
             </button>
+            
         </div>
     </div>
   )
