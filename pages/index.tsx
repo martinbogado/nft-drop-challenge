@@ -45,21 +45,21 @@ const Home = ({ collections }: Props) => {
             <div className='absolute md:top-1/2 lg:top-1/2 w-max lg:hover:-translate-y-[220px] transition duration-300 -translate-y-[180px] translate-x-[200px] sm:-translate-y-[180px] sm:translate-x-[350px] md:translate-x-[220px] lg:-translate-y-[200px] lg:translate-x-[300px]'>
               <div className=' w-32 sm:w-48 card transition rounded-sm lg:w-72 '>
                 
-                  <img src="/images/punk.png" alt="punk" />
+                  <img src="static/images/monkey.png" alt="kong" />
                 
               </div> 
             </div>
             <div className='absolute md:top-1/2 lg:top-1/2 w-max lg:hover:-translate-y-[120px] transition duration-300 -translate-y-[80px] translate-x-[100px] sm:-translate-y-[80px] sm:translate-x-[180px] md:translate-x-[120px] lg:-translate-y-[100px] lg:translate-x-[160px]'>
               <div className=' w-32 sm:w-48 card transition rounded-sm lg:w-72'>
                 
-                  <img src="/images/something.png" alt="something" />
+                  <img src="static/images/avatar.png" alt="avatar" />
                 
               </div> 
             </div>
             <div className='absolute md:top-1/2 lg:top-1/2 w-max lg:hover:-translate-y-3 transition duration-300'>
               <div className=' w-32 sm:w-48 card transition rounded-sm lg:w-72'>
                 
-                  <img src="/images/azuki.png" alt="azuki" />
+                  <img src="static/images/azuki.png" alt="azuki" />
                 
               </div> 
             </div>
@@ -75,15 +75,15 @@ const Home = ({ collections }: Props) => {
             Explore the <span className="font-bold text-yellow-500">collections</span>
           </h1>
         </section>
-        <div className='grid space-x-3 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4'>
+        <div className='grid space-x-3 space-y-8 md:space-y-0 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4'>
           { collections.map( collection => (
             <Link href={`/nft/${collection.slug.current}`} key={collection._id}>
               <div className='flex flex-col items-center cursor-pointer transition-all duration-200 hover:scale-105'>
                 <img className='h-96 w-60 rounded-2xl object-cover' src={urlFor(collection.mainImage).url()} alt="" />
 
                 <div className='p-5'>
-                  <h2 className='text-3xl'>{collection.title}</h2>
-                  <p className='mt-2 text-sm text-gray-600 dark:text-gray-400'>{collection.description}</p>
+                  <h2 className='text-2xl sm:text-3xl text-center md:text-left'>{collection.title}</h2>
+                  <p className='mt-2 text-sm text-center md:text-left text-gray-600 dark:text-gray-400'>{collection.description}</p>
                 </div>
               </div>
             </Link>   
