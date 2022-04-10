@@ -42,14 +42,14 @@ const Home = ({ collections }: Props) => {
           </h1>
         </div>
           <div className='md:col-span-1 md:row-span-2 md:relative'>
-            <div className='absolute md:top-1/2 lg:top-1/2 w-max lg:hover:-translate-y-[220px] transition duration-300 -translate-y-[180px] translate-x-[220px] lg:-translate-y-[200px] lg:translate-x-[300px]'>
+            <div className='absolute md:top-1/2 lg:top-1/2 w-max lg:hover:-translate-y-[220px] transition duration-300 -translate-y-[180px] translate-x-[200px] sm:-translate-y-[180px] sm:translate-x-[220px] lg:-translate-y-[200px] lg:translate-x-[300px]'>
               <div className=' w-32 sm:w-48 card transition rounded-sm lg:w-72 '>
                 
                   <img src="/images/punk.png" alt="punk" />
                 
               </div> 
             </div>
-            <div className='absolute md:top-1/2 lg:top-1/2 w-max lg:hover:-translate-y-[120px] transition duration-300 -translate-y-[80px] translate-x-[120px] lg:-translate-y-[100px] lg:translate-x-[160px]'>
+            <div className='absolute md:top-1/2 lg:top-1/2 w-max lg:hover:-translate-y-[120px] transition duration-300 -translate-y-[80px] translate-x-[100px] sm:-translate-y-[80px] sm:translate-x-[120px] lg:-translate-y-[100px] lg:translate-x-[160px]'>
               <div className=' w-32 sm:w-48 card transition rounded-sm lg:w-72'>
                 
                   <img src="/images/something.png" alt="something" />
