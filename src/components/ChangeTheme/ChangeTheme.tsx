@@ -16,7 +16,7 @@ const ChangeTheme: React.FC = () => {
        {
            mounted && (
                <button
-                className="absolute top-10 right-10 w-10 h-5 md:w-12 md:h-6 rounded-2xl bg-white flex items-center transition duration-300 focus:outline-none shadow"
+                className="absolute top-10 right-10 w-10 h-5 md:w-12 md:h-6 rounded-2xl bg-white lg:bg-gray-50 flex items-center transition duration-300 focus:outline-none shadow"
                 onClick={() => theme === 'dark' ? setTheme('light') : setTheme('dark')}
                 >
                     <div

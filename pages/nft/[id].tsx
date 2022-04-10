@@ -126,7 +126,7 @@ function NFTDropPage({ collection }: Props ) {
         
         {/* Left */}
         <div className='lg:col-span-4 bg-gradient-to-br bg-300 from-cyan-500 via-purple-500 to-pink-500 animate-move'>
-            <div className='flex flex-col items-center justify-center py-2 lg:min-h-screen'>
+            <div className='flex flex-col items-center justify-center py-8 lg:py-2 lg:min-h-screen'>
                 <div className='rounded-xl bg-gradient-to-br from-yellow-400 to-cyan-600 p-1'>
                     <img 
                         className='w-44 rounded-xl object-cover lg:h-96 lg:w-72'
