@@ -1,23 +1,22 @@
-# Next.js + Tailwind CSS Example
+# NFT Drop Challenge
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+The end result is deployed in **Vercel**. You can access the webpage of this project through this [link](https://nft-drop-challenge-cyan.vercel.app/).
 
-## Deploy your own
+## About
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+NFT Drop Website where you can sign in with your Metamask wallet and be able to mint and claim 1 on 1 NFT Tokens.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+## Built With
 
-## How to use
+- [NextJS](https://nextjs.org/) - The React Framework
+  for Production.
+- [TailwindCSS 3](https://tailwindcss.com/) - Rapidly build modern websites without ever leaving your HTML
+- [TypeScript](https://www.typescriptlang.org/) - TypeScript is JavaScript with syntax for types.
+- [Thirdweb](https://thirdweb.com/) - Smart contracts you control. Tools that accelerate your workflow.
+  Intuitive SDKs and widgets for developers. 
+- [Sanity](https://www.sanity.io/) - Sanity.io is the unified content platform that powers better digital experiences.
+- [React Hot Toast](https://react-hot-toast.com/) - Smoking hot React notifications.
+  <br>
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-# or
-pnpm create next-app -- --example with-tailwindcss with-tailwindcss-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## Page
+<br>
