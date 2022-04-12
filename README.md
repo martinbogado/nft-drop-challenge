@@ -20,3 +20,12 @@ NFT Drop Website where you can sign in with your Metamask wallet and be able to 
 
 ## Page
 <br>
+
+![Landing Page](https://user-images.githubusercontent.com/85038226/162987387-d357a1df-d30a-428d-be3d-085519b205dc.png)
+
+# Acknowledgments
+
+Big thanks to Sonny and the PAPAFAM community, that made all of this possible.
+
+- [Sonny Sangha](https://www.youtube.com/channel/UCqeTj_QAnNlmt7FwzNwHZnA) - YouTube
+- [PapaReact](https://www.papareact.com/) - Website
